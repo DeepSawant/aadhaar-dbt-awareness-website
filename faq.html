@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — Aadhaar & DBT Awareness</title>
+  <meta name="description" content="Frequently asked questions about Aadhaar-linked vs DBT-enabled bank accounts, with detailed answers for students." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="./">Aadhaar & DBT Awareness</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" id="navToggle">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+      <ul id="nav-menu" class="nav__list" hidden>
+        <li><a href="./#difference">Difference</a></li>
+        <li><a href="./#steps">How to Enable DBT</a></li>
+        <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="panel">
+      <h1>Frequently Asked Questions</h1>
+      <p class="lead">Common questions about Aadhaar-linked and DBT-enabled accounts, answered for students.</p>
+      
+      <div class="accordion" id="faqList">
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq1" id="btn-faq1">Is Aadhaar-linking the same as DBT enabling?</button>
+          </h2>
+          <div id="faq1" class="accordion__panel" role="region" aria-labelledby="btn-faq1" hidden>
+            <p><strong>No, they are different.</strong></p>
+            <ul>
+              <li><strong>Aadhaar-linking:</strong> Your bank has your Aadhaar number mapped to your account for KYC purposes.</li>
+              <li><strong>DBT enabling:</strong> Your account is designated as the <strong>primary</strong> destination for government benefit transfers in the NPCI mapper.</li>
+            </ul>
+            <p>You need both, but having an Aadhaar-linked account doesn't automatically mean DBT is enabled.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq2" id="btn-faq2">What if I have multiple bank accounts?</button>
+          </h2>
+          <div id="faq2" class="accordion__panel" role="region" aria-labelledby="btn-faq2" hidden>
+            <p>Only <strong>one account</strong> can be set as your primary DBT destination at a time.</p>
+            <ul>
+              <li>You can have Aadhaar linked to multiple accounts, but DBT can only be enabled for one.</li>
+              <li>To change your DBT account, visit your new preferred bank and request them to update the NPCI mapper.</li>
+              <li>The change may take a few working days to reflect.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq3" id="btn-faq3">How long does enabling DBT take?</button>
+          </h2>
+          <div id="faq3" class="accordion__panel" role="region" aria-labelledby="btn-faq3" hidden>
+            <p>The timeline varies by bank, but typically:</p>
+            <ul>
+              <li><strong>Aadhaar seeding:</strong> 1-3 working days</li>
+              <li><strong>NPCI mapper update:</strong> 2-7 working days</li>
+              <li><strong>Overall process:</strong> Up to 10 working days in some cases</li>
+            </ul>
+            <p>It's best to complete this process well before you expect to receive any benefits.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq4" id="btn-faq4">How do I check if my DBT is enabled?</button>
+          </h2>
+          <div id="faq4" class="accordion__panel" role="region" aria-labelledby="btn-faq4" hidden>
+            <p>You can verify DBT status through:</p>
+            <ul>
+              <li><strong>Bank channels:</strong> Visit branch, call customer care, or check mobile banking app</li>
+              <li><strong>DBT notifications:</strong> When benefits are disbursed, you'll receive SMS/email confirmations</li>
+              <li><strong>Benefit tracking:</strong> Some government portals allow you to track benefit status</li>
+            </ul>
+            <p><strong>Note:</strong> There's no single universal portal to check DBT status across all schemes.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq5" id="btn-faq5">What documents do I need?</button>
+          </h2>
+          <div id="faq5" class="accordion__panel" role="region" aria-labelledby="btn-faq5" hidden>
+            <p>For Aadhaar seeding and DBT enabling:</p>
+            <ul>
+              <li><strong>Aadhaar card</strong> (original or xerox)</li>
+              <li><strong>Bank account details</strong> (passbook or statement)</li>
+              <li><strong>Identity proof</strong> (PAN card, passport, etc.)</li>
+              <li><strong>Mobile number</strong> linked to Aadhaar</li>
+            </ul>
+            <p>Requirements may vary slightly by bank, so check with your specific bank.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq6" id="btn-faq6">Can I enable DBT for a joint account?</button>
+          </h2>
+          <div id="faq6" class="accordion__panel" role="region" aria-labelledby="btn-faq6" hidden>
+            <p><strong>Yes</strong>, but with specific conditions:</p>
+            <ul>
+              <li>The joint account can be DBT-enabled under the <strong>primary holder's</strong> Aadhaar</li>
+              <li>All account holders may need to provide consent</li>
+              <li>Benefits will be credited to the joint account, accessible to all holders</li>
+            </ul>
+            <p>Check with your bank for their specific joint account DBT policies.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq7" id="btn-faq7">What if my DBT transfer fails?</button>
+          </h2>
+          <div id="faq7" class="accordion__panel" role="region" aria-labelledby="btn-faq7" hidden>
+            <p>Common reasons for DBT failure:</p>
+            <ul>
+              <li><strong>Account not DBT-enabled:</strong> Complete the enabling process</li>
+              <li><strong>Incorrect account details:</strong> Update your information with the benefit-issuing agency</li>
+              <li><strong>Account closed/frozen:</strong> Resolve account status with your bank</li>
+              <li><strong>Multiple accounts:</strong> Ensure the correct account is set as primary for DBT</li>
+            </ul>
+            <p><strong>Solution:</strong> Contact both your bank and the agency issuing the benefit for assistance.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq8" id="btn-faq8">Is there any fee for DBT enabling?</button>
+          </h2>
+          <div id="faq8" class="accordion__panel" role="region" aria-labelledby="btn-faq8" hidden>
+            <p><strong>Generally, no.</strong></p>
+            <ul>
+              <li>Most banks don't charge for Aadhaar seeding or DBT enabling</li>
+              <li>It's a regulatory requirement, so banks typically provide it free</li>
+              <li>If a bank tries to charge you, question it or consider switching banks</li>
+            </ul>
+            <p><strong>Tip:</strong> Always ask for fee details upfront and get written confirmation.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq9" id="btn-faq9">Can I use online banking to enable DBT?</button>
+          </h2>
+          <div id="faq9" class="accordion__panel" role="region" aria-labelledby="btn-faq9" hidden>
+            <p><strong>It depends on your bank.</strong></p>
+            <ul>
+              <li>Some banks allow Aadhaar seeding through online banking or mobile apps</li>
+              <li>However, most require a <strong>physical visit</strong> to complete DBT enabling</li>
+              <li>This is because of verification requirements and NPCI mapper updates</li>
+            </ul>
+            <p><strong>Recommendation:</strong> Start online if available, but expect to visit the branch to complete the process.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h2>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq10" id="btn-faq10">What benefits can I receive through DBT?</button>
+          </h2>
+          <div id="faq10" class="accordion__panel" role="region" aria-labelledby="btn-faq10" hidden>
+            <p>Common DBT benefits include:</p>
+            <ul>
+              <li><strong>LPG subsidies</strong> (cooking gas)</li>
+              <li><strong>Scholarship payments</strong></li>
+              <li><strong>Pension payments</strong></li>
+              <li><strong>Employment guarantee scheme wages</strong> (MGNREGA)</li>
+              <li><strong>Fertilizer subsidies</strong></li>
+              <li><strong>Various state and central government schemes</strong></li>
+            </ul>
+            <p>The specific benefits depend on your eligibility and the schemes you're enrolled in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Still have questions?</h2>
+      <p>If your question isn't answered here, try these resources:</p>
+      <ul>
+        <li>Contact your bank's customer service</li>
+        <li>Visit the <a href="resources.html">Resources page</a> for official links</li>
+        <li>Check government benefit portals for scheme-specific information</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Student Awareness Initiative. For information only.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aadhaar-linked vs DBT-enabled Accounts — Student Awareness</title>
+  <meta name="description" content="Learn the difference between Aadhaar-linked bank accounts and DBT-enabled Aadhaar-seeded accounts. Student-friendly guides, FAQs, and resources." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="./">Aadhaar & DBT Awareness</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" id="navToggle">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+      <ul id="nav-menu" class="nav__list" hidden>
+        <li><a href="#difference">Difference</a></li>
+        <li><a href="#steps">How to Enable DBT</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+    <section class="hero" role="region" aria-label="Intro">
+      <h1>Understand Aadhaar-linked vs DBT-enabled Bank Accounts</h1>
+      <p class="lead">Clear, student-friendly explanations to help you receive benefits without delays.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#difference">See the Difference</a>
+        <a class="btn" href="#steps">Enable DBT</a>
+      </div>
+    </section>
+  </header>
+
+  <main id="main">
+    <section class="panel" id="difference" aria-labelledby="difference-title">
+      <h2 id="difference-title">Key Difference at a Glance</h2>
+      <div class="compare">
+        <article class="card" aria-labelledby="linked-title">
+          <h3 id="linked-title">Aadhaar-linked Account</h3>
+          <ul>
+            <li>Your bank has your Aadhaar number mapped to the account.</li>
+            <li>Useful for KYC and general verification.</li>
+            <li><strong>Not sufficient</strong> for receiving DBT benefits by itself.</li>
+          </ul>
+        </article>
+        <article class="card card--accent" aria-labelledby="dbt-title">
+          <h3 id="dbt-title">DBT-enabled Aadhaar-seeded Account</h3>
+          <ul>
+            <li>Aadhaar is <em>seeded</em> and DBT is <strong>enabled</strong> for benefit transfers.</li>
+            <li>The account is marked as the <strong>primary</strong> for DBT in NPCI mapper.</li>
+            <li>Required for receiving government benefits via Direct Benefit Transfer.</li>
+          </ul>
+        </article>
+      </div>
+      <details class="note">
+        <summary>What is the NPCI mapper?</summary>
+        <p>The NPCI (National Payments Corporation of India) maintains a secure mapper that links your Aadhaar to a single bank account designated to receive DBT credits. If your account is not correctly mapped, DBT credits may fail or go to a different account.</p>
+      </details>
+    </section>
+
+    <section class="panel" id="steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">How to Enable DBT on Your Bank Account</h2>
+      <ol class="steps">
+        <li>
+          <h3>Confirm Aadhaar Seeding</h3>
+          <p>Check with your bank or mobile banking app that your Aadhaar is seeded with your chosen bank account.</p>
+        </li>
+        <li>
+          <h3>Set DBT Receiving Account</h3>
+          <p>Ask the bank to mark this account as your <strong>primary DBT account</strong> in the NPCI mapper.</p>
+        </li>
+        <li>
+          <h3>Verify Status</h3>
+          <p>After a few days, re-check status via bank channels. You can also verify DBT credit notifications when benefits are disbursed.</p>
+        </li>
+        <li>
+          <h3>Keep Your KYC Updated</h3>
+          <p>Ensure PAN, Aadhaar, mobile number, and address are up to date to avoid DBT delays.</p>
+        </li>
+      </ol>
+      <p class="disclaimer" role="note">Disclaimer: This site is for awareness only. Always follow official instructions from your bank and government portals.</p>
+    </section>
+
+    <section class="panel" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqList">
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq1" id="btn-faq1">Is Aadhaar-linking the same as DBT enabling?</button>
+          </h3>
+          <div id="faq1" class="accordion__panel" role="region" aria-labelledby="btn-faq1" hidden>
+            <p>No. Aadhaar-linking lets your bank identify you, but DBT enabling designates a primary account to receive government benefit transfers via the NPCI mapper.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq2" id="btn-faq2">What if I have multiple bank accounts?</button>
+          </h3>
+          <div id="faq2" class="accordion__panel" role="region" aria-labelledby="btn-faq2" hidden>
+            <p>Only one account can be set as the primary DBT destination at a time. You may change it by requesting your bank to update the NPCI mapper.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__button" aria-expanded="false" aria-controls="faq3" id="btn-faq3">How long does enabling DBT take?</button>
+          </h3>
+          <div id="faq3" class="accordion__panel" role="region" aria-labelledby="btn-faq3" hidden>
+            <p>Timelines vary by bank. Typically it may take a few working days for seeding and mapper updates to reflect.</p>
+          </div>
+        </div>
+      </div>
+      <p><a class="btn" href="faq.html">View full FAQ</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Student Awareness Initiative. For information only.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
+
