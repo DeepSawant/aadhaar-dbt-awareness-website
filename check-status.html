@@ -68,8 +68,6 @@
                 id="aadhaarNumber" 
                 name="aadhaarNumber" 
                 placeholder="XXXX XXXX XXXX" 
-                maxlength="14" 
-                pattern="[0-9\s]{14}" 
                 required
                 aria-describedby="aadhaar-help"
               >
@@ -79,16 +77,18 @@
             <div class="form-group">
               <label for="mobileNumber">Registered Mobile Number *</label>
               <input 
-                type="tel" 
+                type="text" 
                 id="mobileNumber" 
                 name="mobileNumber" 
-                placeholder="+91 XXXXX XXXXX" 
-                maxlength="14" 
-                pattern="\+91\s[0-9]{5}\s[0-9]{5}" 
+                placeholder="9876543210" 
+                autocomplete="off"
+                autocapitalize="none"
+                autocorrect="off"
+                spellcheck="false"
                 required
                 aria-describedby="mobile-help"
               >
-              <small id="mobile-help">Mobile number registered with your bank and Aadhaar</small>
+              <small id="mobile-help">10-digit mobile number registered with your bank and Aadhaar</small>
             </div>
           </div>
           
@@ -219,6 +219,106 @@
   </footer>
 
   <script src="js/script.js" defer></script>
+  
+  <script>
+    // Auto-format mobile number as user types
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileInput = document.getElementById('mobileNumber');
+      const aadhaarInput = document.getElementById('aadhaarNumber');
+      
+      // Clear any existing value and prevent default behavior
+      mobileInput.addEventListener('focus', function(e) {
+        e.target.value = e.target.value.replace(/\D/g, '');
+      });
+      
+      // Handle paste events
+      mobileInput.addEventListener('paste', function(e) {
+        e.preventDefault();
+        let pastedText = (e.clipboardData || window.clipboardData).getData('text');
+        let digits = pastedText.replace(/\D/g, '');
+        
+        // Remove country code if present
+        if (digits.startsWith('91') && digits.length > 10) {
+          digits = digits.substring(2);
+        }
+        
+        // Limit to 10 digits
+        if (digits.length > 10) {
+          digits = digits.substring(0, 10);
+        }
+        
+        e.target.value = digits;
+        // Trigger input event to format
+        e.target.dispatchEvent(new Event('input'));
+      });
+      
+      // Format mobile number
+      mobileInput.addEventListener('input', function(e) {
+        // Get current cursor position
+        const cursorPos = e.target.selectionStart;
+        
+        // Remove all non-digits
+        let digits = e.target.value.replace(/\D/g, '');
+        
+        // Remove any leading country codes (91, +91, etc.)
+        if (digits.startsWith('91') && digits.length > 10) {
+          digits = digits.substring(2);
+        }
+        
+        // Limit to 10 digits maximum
+        if (digits.length > 10) {
+          digits = digits.substring(0, 10);
+        }
+        
+        // Format as XXXXX XXXXX
+        let formatted = digits;
+        if (digits.length > 5) {
+          formatted = digits.substring(0, 5) + ' ' + digits.substring(5);
+        }
+        
+        // Set the formatted value
+        e.target.value = formatted;
+        
+        // Visual feedback
+        if (digits.length === 10) {
+          e.target.style.borderColor = '#27ae60';
+          e.target.style.backgroundColor = '#f8fff8';
+        } else {
+          e.target.style.borderColor = '#e0e0e0';
+          e.target.style.backgroundColor = '#ffffff';
+        }
+      });
+      
+      // Format Aadhaar number
+      aadhaarInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+        
+        // Limit to 12 digits
+        if (value.length > 12) {
+          value = value.substring(0, 12);
+        }
+        
+        // Format as XXXX XXXX XXXX
+        if (value.length > 8) {
+          value = value.substring(0, 4) + ' ' + value.substring(4, 8) + ' ' + value.substring(8);
+        } else if (value.length > 4) {
+          value = value.substring(0, 4) + ' ' + value.substring(4);
+        }
+        
+        e.target.value = value;
+        
+        // Visual feedback for correct length
+        const digitCount = value.replace(/\s/g, '').length;
+        if (digitCount === 12) {
+          e.target.style.borderColor = '#27ae60';
+          e.target.style.backgroundColor = '#f8fff8';
+        } else {
+          e.target.style.borderColor = '#e0e0e0';
+          e.target.style.backgroundColor = '#ffffff';
+        }
+      });
+    });
+  </script>
   
   <style>
     .status-info {

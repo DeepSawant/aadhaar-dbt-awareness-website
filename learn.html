@@ -123,8 +123,8 @@
     <!-- Key Difference Section -->
     <section class="panel" id="difference" aria-labelledby="difference-title">
       <h2 id="difference-title">🎯 Key Difference at a Glance</h2>
-      <div class="compare">
-        <article class="card" aria-labelledby="linked-title">
+      <div class="compare" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 1rem; justify-content: center;">
+        <article class="card" aria-labelledby="linked-title" style="flex: 1; min-width: 300px; max-width: 400px;">
           <div class="card-header">
             <span class="card-icon">🏦</span>
             <h3 id="linked-title">Aadhaar-linked Account</h3>
@@ -147,7 +147,7 @@
           <span>VS</span>
         </div>
         
-        <article class="card card--accent" aria-labelledby="dbt-title">
+        <article class="card card--accent" aria-labelledby="dbt-title" style="flex: 1; min-width: 300px; max-width: 400px;">
           <div class="card-header">
             <span class="card-icon">💳</span>
             <h3 id="dbt-title">DBT-enabled Aadhaar-seeded Account</h3>
@@ -417,7 +417,9 @@
       border-radius: 50%;
       width: 60px;
       height: 60px;
-      margin: 0 1rem;
+      margin: 1rem auto;
+      flex-shrink: 0;
+      align-self: center;
     }
     
     .note-content {
@@ -511,8 +513,21 @@
         transform: rotate(90deg);
       }
       
+      .compare {
+        flex-direction: column !important;
+      }
+      
       .comparison-arrow {
-        margin: 1rem 0;
+        margin: 1rem auto !important;
+        order: 2;
+      }
+      
+      .card:first-child {
+        order: 1;
+      }
+      
+      .card:last-child {
+        order: 3;
       }
     }
   </style>
