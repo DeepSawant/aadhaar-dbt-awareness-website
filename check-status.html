@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Check Aadhaar DBT Status — Aadhaar & DBT Awareness</title>
+  <meta name="description" content="Check if your Aadhaar is properly linked and DBT-enabled with your bank account. Free online status verification tool." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="./">Aadhaar & DBT Awareness</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" id="navToggle">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+      <ul id="nav-menu" class="nav__list" hidden>
+        <li><a href="learn.html">Learn the Difference</a></li>
+        <li><a href="check-status.html" aria-current="page">Check Status</a></li>
+        <li><a href="enable-guide.html">How to Enable</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="panel">
+      <h1>🔍 Check Your Aadhaar DBT Status</h1>
+      <p class="lead">Verify if your Aadhaar is properly linked and DBT-enabled with your bank account. Get instant guidance on your next steps.</p>
+      
+      <div class="status-info">
+        <div class="info-card">
+          <h3>What we check:</h3>
+          <ul>
+            <li>✓ If your Aadhaar is linked to your bank account</li>
+            <li>✓ If DBT (Direct Benefit Transfer) is enabled</li>
+            <li>✓ If your account is set as primary for receiving benefits</li>
+            <li>✓ Any potential issues that might block transfers</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>Your data is safe:</h3>
+          <ul>
+            <li>🔒 We don't store your personal information</li>
+            <li>🔒 All checks are done locally in your browser</li>
+            <li>🔒 No data is sent to external servers</li>
+            <li>🔒 This is for educational purposes only</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--interactive">
+      <div class="checker-container">
+        <form id="aadhaarForm" class="checker-form" aria-label="Aadhaar Status Check">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="aadhaarNumber">Aadhaar Number (12 digits) *</label>
+              <input 
+                type="text" 
+                id="aadhaarNumber" 
+                name="aadhaarNumber" 
+                placeholder="XXXX XXXX XXXX" 
+                maxlength="14" 
+                pattern="[0-9\s]{14}" 
+                required
+                aria-describedby="aadhaar-help"
+              >
+              <small id="aadhaar-help">Enter your 12-digit Aadhaar number (spaces will be added automatically)</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="mobileNumber">Registered Mobile Number *</label>
+              <input 
+                type="tel" 
+                id="mobileNumber" 
+                name="mobileNumber" 
+                placeholder="+91 XXXXX XXXXX" 
+                maxlength="14" 
+                pattern="\+91\s[0-9]{5}\s[0-9]{5}" 
+                required
+                aria-describedby="mobile-help"
+              >
+              <small id="mobile-help">Mobile number registered with your bank and Aadhaar</small>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bankName">Select Your Bank *</label>
+              <select id="bankName" name="bankName" required>
+                <option value="">Choose your bank...</option>
+                <optgroup label="Public Sector Banks">
+                  <option value="sbi">State Bank of India</option>
+                  <option value="pnb">Punjab National Bank</option>
+                  <option value="boi">Bank of India</option>
+                  <option value="canara">Canara Bank</option>
+                  <option value="union">Union Bank of India</option>
+                  <option value="indian">Indian Bank</option>
+                  <option value="bob">Bank of Baroda</option>
+                  <option value="central">Central Bank of India</option>
+                </optgroup>
+                <optgroup label="Private Sector Banks">
+                  <option value="hdfc">HDFC Bank</option>
+                  <option value="icici">ICICI Bank</option>
+                  <option value="axis">Axis Bank</option>
+                  <option value="kotak">Kotak Mahindra Bank</option>
+                  <option value="yes">YES Bank</option>
+                  <option value="indusind">IndusInd Bank</option>
+                </optgroup>
+                <option value="other">Other Bank</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="accountNumber">Account Number (last 4 digits) *</label>
+              <input 
+                type="text" 
+                id="accountNumber" 
+                name="accountNumber" 
+                placeholder="XXXX" 
+                maxlength="4" 
+                pattern="[0-9]{4}" 
+                required
+                aria-describedby="account-help"
+              >
+              <small id="account-help">For verification purposes only - we only need last 4 digits</small>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="benefitType">What benefits do you expect to receive?</label>
+            <select id="benefitType" name="benefitType">
+              <option value="">Select benefit type (optional)</option>
+              <option value="scholarship">Scholarship payments</option>
+              <option value="pension">Pension payments</option>
+              <option value="lpg">LPG subsidies</option>
+              <option value="mgnrega">MGNREGA wages</option>
+              <option value="pmkisan">PM-Kisan payments</option>
+              <option value="other">Other government benefits</option>
+            </select>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--large">
+              🔍 Check My Status
+            </button>
+            <button type="reset" class="btn btn--secondary">
+              Clear Form
+            </button>
+          </div>
+        </form>
+        
+        <div id="checkResult" class="check-result" hidden>
+          <!-- Results will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--light">
+      <h2>What happens after checking?</h2>
+      <div class="result-preview">
+        <div class="result-card">
+          <div class="result-icon success">✅</div>
+          <h3>Fully Enabled</h3>
+          <p>Your account is properly linked and DBT-enabled. You should receive benefits without issues.</p>
+          <strong>Next step:</strong> Monitor your benefit payments and keep KYC updated.
+        </div>
+        
+        <div class="result-card">
+          <div class="result-icon warning">⚠️</div>
+          <h3>Partially Set Up</h3>
+          <p>Your Aadhaar is linked but DBT might not be fully enabled for all benefits.</p>
+          <strong>Next step:</strong> Visit your bank to complete DBT enabling process.
+        </div>
+        
+        <div class="result-card">
+          <div class="result-icon error">❌</div>
+          <h3>Not Linked</h3>
+          <p>Your account is not properly set up for receiving government benefits.</p>
+          <strong>Next step:</strong> Follow our <a href="enable-guide.html">step-by-step guide</a> to set it up.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Need Help?</h2>
+      <div class="help-options">
+        <div class="help-card">
+          <h3>📚 Learn First</h3>
+          <p>New to this topic? Start by understanding the basic difference.</p>
+          <a href="learn.html" class="btn">Learn the Difference</a>
+        </div>
+        
+        <div class="help-card">
+          <h3>📋 Step-by-Step Guide</h3>
+          <p>Ready to take action? Follow our detailed enabling process.</p>
+          <a href="enable-guide.html" class="btn">Enable DBT Guide</a>
+        </div>
+        
+        <div class="help-card">
+          <h3>❓ Common Questions</h3>
+          <p>Find answers to frequently asked questions about the process.</p>
+          <a href="faq.html" class="btn">View FAQ</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Student Awareness Initiative. For information only.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  
+  <style>
+    .status-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .info-card {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #4ecdc4;
+    }
+    
+    .info-card h3 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .info-card li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .checker-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #4ecdc4;
+    }
+    
+    .form-group small {
+      display: block;
+      margin-top: 0.25rem;
+      color: #666;
+      font-size: 0.875rem;
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    .result-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .result-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .result-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .result-icon.success {
+      color: #27ae60;
+    }
+    
+    .result-icon.warning {
+      color: #f39c12;
+    }
+    
+    .result-icon.error {
+      color: #e74c3c;
+    }
+    
+    .help-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .help-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</body>
+</html>

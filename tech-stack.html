@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technology Stack - Aadhaar & DBT Awareness Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3748;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .tech-category {
+      background: #f7fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .tech-category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .tech-category.frontend {
+      border-left: 4px solid #48bb78;
+    }
+    
+    .tech-category.styling {
+      border-left: 4px solid #667eea;
+    }
+    
+    .tech-category.interactive {
+      border-left: 4px solid #f6ad55;
+    }
+    
+    .tech-category.tools {
+      border-left: 4px solid #e53e3e;
+    }
+    
+    .tech-category h3 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+      color: #2d3748;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .tech-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .tech-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .tech-item:last-child {
+      border-bottom: none;
+    }
+    
+    .tech-name {
+      font-weight: 600;
+      color: #2d3748;
+    }
+    
+    .tech-version {
+      background: #edf2f7;
+      color: #4a5568;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+    
+    .tech-usage {
+      color: #718096;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    
+    .file-structure {
+      background: #1a202c;
+      color: #a0aec0;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    
+    .file-structure h3 {
+      color: #48bb78;
+      margin: 0 0 1rem 0;
+    }
+    
+    .file-tree {
+      line-height: 1.6;
+    }
+    
+    .file {
+      color: #a0aec0;
+    }
+    
+    .file.html {
+      color: #f6ad55;
+    }
+    
+    .file.css {
+      color: #667eea;
+    }
+    
+    .file.js {
+      color: #48bb78;
+    }
+    
+    .file.md {
+      color: #e53e3e;
+    }
+    
+    .folder {
+      color: #4fd1c7;
+      font-weight: 600;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 1px solid #48bb78;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .feature-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: #2d3748;
+    }
+    
+    .feature-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: #667eea;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .file-structure {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🛠️ Technology Stack</h1>
+      <p>Complete breakdown of languages, frameworks, and tools used in the Aadhaar & DBT Awareness Website</p>
+    </div>
+    
+    <!-- Project Statistics -->
+    <div class="stats">
+      <div class="stat-card">
+        <span class="stat-number">5</span>
+        <span class="stat-label">HTML Pages</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">763</span>
+        <span class="stat-label">Lines of CSS</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">236</span>
+        <span class="stat-label">Lines of JavaScript</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Responsive Design</span>
+      </div>
+    </div>
+    
+    <!-- Technology Categories -->
+    <div class="tech-grid">
+      <!-- Frontend Structure -->
+      <div class="tech-category frontend">
+        <h3>🏗️ Frontend Structure</h3>
+        <ul class="tech-list">
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">HTML5</div>
+              <div class="tech-usage">Semantic markup, accessibility features</div>
+            </div>
+            <span class="tech-version">Latest</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">ARIA</div>
+              <div class="tech-usage">Screen reader support, accessibility</div>
+            </div>
+            <span class="tech-version">WCAG 2.1</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Progressive Enhancement</div>
+              <div class="tech-usage">Works without JavaScript</div>
+            </div>
+            <span class="tech-version">Core Principle</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Styling & Design -->
+      <div class="tech-category styling">
+        <h3>🎨 Styling & Design</h3>
+        <ul class="tech-list">
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">CSS3</div>
+              <div class="tech-usage">Modern layouts, animations, gradients</div>
+            </div>
+            <span class="tech-version">Latest</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Flexbox</div>
+              <div class="tech-usage">Navigation, button groups, layouts</div>
+            </div>
+            <span class="tech-version">CSS3</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">CSS Grid</div>
+              <div class="tech-usage">Video cards, comparison sections</div>
+            </div>
+            <span class="tech-version">CSS3</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">CSS Custom Properties</div>
+              <div class="tech-usage">Color theming, consistent styling</div>
+            </div>
+            <span class="tech-version">CSS3</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Google Fonts</div>
+              <div class="tech-usage">Inter font family for typography</div>
+            </div>
+            <span class="tech-version">Web API</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Interactive Features -->
+      <div class="tech-category interactive">
+        <h3>⚡ Interactive Features</h3>
+        <ul class="tech-list">
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Vanilla JavaScript</div>
+              <div class="tech-usage">Form handling, validation, animations</div>
+            </div>
+            <span class="tech-version">ES6+</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">DOM APIs</div>
+              <div class="tech-usage">Element manipulation, event handling</div>
+            </div>
+            <span class="tech-version">Native</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Intersection Observer API</div>
+              <div class="tech-usage">Scroll animations, lazy loading</div>
+            </div>
+            <span class="tech-version">Modern Web</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Form Validation API</div>
+              <div class="tech-usage">Input validation, pattern matching</div>
+            </div>
+            <span class="tech-version">HTML5</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Regular Expressions</div>
+              <div class="tech-usage">Aadhaar/mobile number formatting</div>
+            </div>
+            <span class="tech-version">JavaScript</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Development Tools -->
+      <div class="tech-category tools">
+        <h3>🔧 Development Tools</h3>
+        <ul class="tech-list">
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Static HTML</div>
+              <div class="tech-usage">No build process required</div>
+            </div>
+            <span class="tech-version">Pure</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">File-based Routing</div>
+              <div class="tech-usage">Simple navigation between pages</div>
+            </div>
+            <span class="tech-version">Native</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Browser DevTools</div>
+              <div class="tech-usage">Debugging, performance testing</div>
+            </div>
+            <span class="tech-version">Native</span>
+          </li>
+          <li class="tech-item">
+            <div>
+              <div class="tech-name">Git Version Control</div>
+              <div class="tech-usage">Source code management</div>
+            </div>
+            <span class="tech-version">Standard</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- File Structure -->
+    <div class="file-structure">
+      <h3>📁 Project File Structure</h3>
+      <div class="file-tree">
+<span class="folder">aadhaar-dbt-awareness-website/</span>
+├── <span class="file html">index.html</span>              # Main homepage with videos & checker
+├── <span class="file html">dbt-guide.html</span>          # Step-by-step DBT enabling guide
+├── <span class="file html">faq.html</span>               # Frequently asked questions
+├── <span class="file html">resources.html</span>         # Official government resources
+├── <span class="file html">flowchart.html</span>         # User journey visualization
+├── <span class="file md">README.md</span>               # Project documentation
+├── <span class="file md">WARP.md</span>                 # Project notes
+├── <span class="folder">css/</span>
+│   └── <span class="file css">styles.css</span>           # Complete styling (763+ lines)
+└── <span class="folder">js/</span>
+    └── <span class="file js">script.js</span>            # Interactive functionality (236+ lines)
+      </div>
+    </div>
+    
+    <!-- Key Features -->
+    <h3 style="text-align: center; margin: 3rem 0 2rem 0; color: #2d3748;">🚀 Key Technical Features</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h4>Mobile-First Responsive</h4>
+        <p>CSS Grid & Flexbox with mobile breakpoints</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">♿</span>
+        <h4>Accessibility Compliant</h4>
+        <p>ARIA labels, semantic HTML, keyboard navigation</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <h4>Form Auto-formatting</h4>
+        <p>Real-time Aadhaar & mobile number formatting</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎬</span>
+        <h4>Video Integration</h4>
+        <p>Embedded educational videos with responsive design</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✨</span>
+        <h4>Smooth Animations</h4>
+        <p>CSS transitions & Intersection Observer</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔍</span>
+        <h4>Smart Status Checker</h4>
+        <p>Client-side validation with routing logic</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎨</span>
+        <h4>Modern Design System</h4>
+        <p>Gradient backgrounds, card layouts, typography</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h4>Zero Dependencies</h4>
+        <p>Pure HTML/CSS/JS - no frameworks needed</p>
+      </div>
+    </div>
+    
+    <!-- Technical Specifications -->
+    <div style="background: #f7fafc; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+      <h3 style="margin: 0 0 1rem 0; color: #2d3748;">📋 Technical Specifications</h3>
+      <ul style="color: #4a5568; line-height: 1.8;">
+        <li><strong>Architecture:</strong> Static website with client-side interactivity</li>
+        <li><strong>Hosting:</strong> Can be deployed anywhere (GitHub Pages, Netlify, Vercel, etc.)</li>
+        <li><strong>Browser Support:</strong> Modern browsers (Chrome 70+, Firefox 65+, Safari 12+, Edge 79+)</li>
+        <li><strong>Performance:</strong> Fast loading with no external dependencies except Google Fonts</li>
+        <li><strong>SEO:</strong> Semantic HTML with proper meta tags and descriptions</li>
+        <li><strong>Security:</strong> No server-side code, all processing client-side</li>
+      </ul>
+    </div>
+    
+    <!-- Color Palette -->
+    <div style="background: #f7fafc; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+      <h3 style="margin: 0 0 1rem 0; color: #2d3748;">🎨 Design System Colors</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; margin: 0 auto 0.5rem;"></div>
+          <small>Primary Gradient</small>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #48bb78; border-radius: 8px; margin: 0 auto 0.5rem;"></div>
+          <small>Success Green</small>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #f6ad55; border-radius: 8px; margin: 0 auto 0.5rem;"></div>
+          <small>Warning Orange</small>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #e53e3e; border-radius: 8px; margin: 0 auto 0.5rem;"></div>
+          <small>Error Red</small>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #2d3748; border-radius: 8px; margin: 0 auto 0.5rem;"></div>
+          <small>Text Dark</small>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

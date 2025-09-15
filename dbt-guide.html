@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enable DBT — Step-by-Step Guide</title>
+  <meta name="description" content="Step-by-step guide to seed Aadhaar and enable DBT for your bank account." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="./">Aadhaar & DBT Awareness</a>
+      <ul class="nav__list">
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="index.html#checker">Check Status</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+    <section class="hero" role="region" aria-label="DBT Guide Intro">
+      <h1>Enable DBT on Your Bank Account</h1>
+      <p class="lead">Follow these steps to seed your Aadhaar and set your primary DBT account in the NPCI mapper.</p>
+    </section>
+  </header>
+
+  <main id="main">
+    <section class="panel" id="prereqs">
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>Your 12-digit Aadhaar number</li>
+        <li>A bank account you wish to receive benefits in</li>
+        <li>Registered mobile number with active SMS</li>
+        <li>Valid KYC documents (PAN, address)</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="steps">
+      <h2>Step-by-Step Process</h2>
+      <ol class="steps">
+        <li>
+          <h3>Seed Aadhaar with Your Bank</h3>
+          <p>Visit your bank branch, internet banking, or mobile app to seed Aadhaar with your chosen account. Some banks allow Aadhaar seeding via ATM.</p>
+        </li>
+        <li>
+          <h3>Set as Primary DBT Account</h3>
+          <p>Ask the bank to mark this account as your <strong>primary DBT account</strong> in the NPCI mapper. This ensures benefits are credited here.</p>
+        </li>
+        <li>
+          <h3>Verify Mapping</h3>
+          <p>Within a few days, confirm with your bank channels that your Aadhaar is seeded and DBT is enabled.</p>
+        </li>
+        <li>
+          <h3>Troubleshoot Issues</h3>
+          <p>If credits fail or go to a different account, request your bank to update the NPCI mapper to the correct account.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="panel" id="assist">
+      <h2>Get Personalized Assistance</h2>
+      <p>Provide your bank and city to get tailored instructions and contact details.</p>
+      <form id="assistForm" class="checker-form">
+        <div class="form-group">
+          <label for="assistBank">Your Bank</label>
+          <select id="assistBank" name="assistBank" required>
+            <option value="">Choose your bank...</option>
+            <option value="sbi">State Bank of India</option>
+            <option value="hdfc">HDFC Bank</option>
+            <option value="icici">ICICI Bank</option>
+            <option value="axis">Axis Bank</option>
+            <option value="pnb">Punjab National Bank</option>
+            <option value="boi">Bank of India</option>
+            <option value="canara">Canara Bank</option>
+            <option value="union">Union Bank</option>
+            <option value="other">Other Bank</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="assistCity">Your City</label>
+          <input type="text" id="assistCity" name="assistCity" placeholder="e.g., Pune" required>
+        </div>
+        <button type="submit" class="btn btn--primary">Get Help</button>
+      </form>
+      <div id="assistResult" class="check-result" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Student Awareness Initiative. For information only.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
+

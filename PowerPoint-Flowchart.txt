@@ -1,0 +1,83 @@
+AADHAAR & DBT AWARENESS WEBSITE - USER FLOW FLOWCHART
+=========================================================
+
+                        🏠 WEBSITE ENTRY
+                      (index.html homepage)
+                             |
+                    📱 HERO SECTION
+                  "Understand Aadhaar vs DBT"
+                             |
+                    ┌────────┴────────┐
+                    │                 │
+            🎥 WATCH VIDEOS    🔍 CHECK STATUS
+            (Educational Path)  (Action Path)
+                    │                 │
+                    │                 │
+        ┌──────────────────┐     ┌──────────────────┐
+        │  AI VIDEO SECTION │     │  AADHAAR CHECKER │
+        │ • What is difference│     │ • Enter Aadhaar  │
+        │ • Step-by-step     │     │ • Select bank     │
+        │ • Common issues    │     │ • Account details │
+        └──────────┬─────────┘     └─────────┬────────┘
+                   │                         │
+        ┌──────────────────┐     ┌──────────────────┐
+        │ LEARN DIFFERENCE │     │  STATUS RESULT   │
+        │ • Aadhaar-linked │     │ • Linked ✅      │
+        │ • DBT-enabled    │     │ • Not linked ❌  │
+        │ • Why it matters │     │ • Partial ⚠️    │
+        └──────────┬─────────┘     └─────────┬────────┘
+                   │                         │
+        ┌──────────────────┐     ┌──────────────────┐
+        │  HOW TO ENABLE   │     │   NEXT STEPS     │
+        │ 1. Visit bank    │     │ • Enable DBT     │
+        │ 2. Aadhaar seed  │     │ • Link Aadhaar   │
+        │ 3. Set as primary│     │ • Visit branch   │
+        │ 4. Verify status │     │ • Update KYC     │
+        └──────────┬─────────┘     └─────────┬────────┘
+                   │                         │
+                   └─────────┬───────────────┘
+                             │
+            ┌────────────────┴────────────────┐
+            │                                 │
+    ❓ FAQ SECTION                    📚 RESOURCES PAGE
+    • Is linking = DBT?              • Government links
+    • Multiple accounts?              • Official portals
+    • How long it takes?              • Bank contacts
+    • Troubleshooting                 • Help documents
+            │                                 │
+            └────────────────┬────────────────┘
+                             │
+                    🎯 FINAL ACTIONS
+                   ┌─────────────────┐
+                   │ • Visit bank    │
+                   │ • Enable DBT    │
+                   │ • Track benefits│
+                   │ • Get support   │
+                   └─────────────────┘
+
+KEY USER JOURNEYS:
+==================
+
+JOURNEY 1: Educational User (Wants to Learn)
+Entry → Watch Videos → Learn Difference → How to Enable → FAQ → Action
+
+JOURNEY 2: Action-Oriented User (Wants to Check)
+Entry → Check Status → Get Result → Follow Steps → Resources → Action
+
+JOURNEY 3: Problem-Solving User (Has Issues)
+Entry → Any Section → FAQ → Troubleshooting → Resources → Support
+
+DECISION POINTS:
+================
+🔹 Learn First or Check Status?
+🔹 Already know basics or need education?
+🔹 Account linked or not linked?
+🔹 Need more help or ready to act?
+
+SUCCESS OUTCOMES:
+=================
+✅ User understands Aadhaar vs DBT difference
+✅ User knows their account status
+✅ User has clear next steps
+✅ User can troubleshoot issues
+✅ User successfully enables DBT

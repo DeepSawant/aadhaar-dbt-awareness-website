@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website User Journey Flowchart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3748;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+    }
+    
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+    }
+    
+    .step {
+      background: white;
+      border: 3px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      min-width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .step-start {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+      color: white;
+      border-color: #48bb78;
+    }
+    
+    .step-decision {
+      background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+      color: white;
+      border-color: #f6ad55;
+      border-radius: 50px;
+      min-width: 250px;
+    }
+    
+    .step-action {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: #667eea;
+    }
+    
+    .step-end {
+      background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+      color: white;
+      border-color: #e53e3e;
+    }
+    
+    .step-success {
+      background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+      color: white;
+      border-color: #38a169;
+    }
+    
+    .step h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .step p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .arrow {
+      width: 3px;
+      height: 60px;
+      background: #cbd5e0;
+      position: relative;
+      margin: 0;
+    }
+    
+    .arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: -5px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 12px solid #cbd5e0;
+    }
+    
+    .branch {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .branch-path {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .branch-label {
+      background: #edf2f7;
+      color: #4a5568;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .branch-label.yes {
+      background: #f0fff4;
+      color: #2f855a;
+      border: 2px solid #48bb78;
+    }
+    
+    .branch-label.no {
+      background: #fff5f5;
+      color: #c53030;
+      border: 2px solid #f56565;
+    }
+    
+    .branch-label.maybe {
+      background: #fffbf0;
+      color: #b7791f;
+      border: 2px solid #f6ad55;
+    }
+    
+    .legend {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #f7fafc;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .legend h3 {
+      margin: 0 0 1rem 0;
+      color: #2d3748;
+    }
+    
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid rgba(0,0,0,0.1);
+    }
+    
+    .legend-color.start { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); }
+    .legend-color.decision { background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%); }
+    .legend-color.action { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .legend-color.success { background: linear-gradient(135deg, #38a169 0%, #2f855a 100%); }
+    .legend-color.end { background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .branch {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .step {
+        min-width: 250px;
+      }
+      
+      .legend-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🌊 Website User Journey Flowchart</h1>
+      <p>Step-by-step flow showing how users navigate through the Aadhaar & DBT Awareness Website</p>
+    </div>
+    
+    <div class="flowchart">
+      <!-- Start -->
+      <div class="step step-start">
+        <span class="step-icon">🏠</span>
+        <h3>User Lands on Homepage</h3>
+        <p>index.html - Main landing page with hero section</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <!-- First Choice -->
+      <div class="step step-decision">
+        <span class="step-icon">🤔</span>
+        <h3>What does user want to do?</h3>
+        <p>Two main call-to-action buttons available</p>
+      </div>
+      
+      <!-- Branch 1: Videos -->
+      <div class="branch">
+        <div class="branch-path">
+          <div class="branch-label">Option A: Learn First</div>
+          <div class="step step-action">
+            <span class="step-icon">🤖</span>
+            <h3>Watch AI Videos</h3>
+            <p>Educational videos explaining Aadhaar vs DBT differences</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="step step-action">
+            <span class="step-icon">🧠</span>
+            <h3>User Learns Key Differences</h3>
+            <p>Understands Aadhaar-linked vs DBT-enabled accounts</p>
+          </div>
+        </div>
+        
+        <!-- Branch 2: Direct Check -->
+        <div class="branch-path">
+          <div class="branch-label">Option B: Check Status</div>
+          <div class="step step-action">
+            <span class="step-icon">🔍</span>
+            <h3>Aadhaar Status Checker</h3>
+            <p>Form to check if Aadhaar is linked and DBT enabled</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="step step-action">
+            <span class="step-icon">📝</span>
+            <h3>User Fills Form</h3>
+            <p>Enters Aadhaar, bank, account, mobile details</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Convergence Point -->
+      <div class="arrow"></div>
+      
+      <div class="step step-decision">
+        <span class="step-icon">🤖</span>
+        <h3>System Checks Status</h3>
+        <p>Algorithm analyzes input and provides result</p>
+      </div>
+      
+      <!-- Three Outcomes -->
+      <div class="branch">
+        <!-- Success Path -->
+        <div class="branch-path">
+          <div class="branch-label yes">✅ Already Linked</div>
+          <div class="step step-success">
+            <span class="step-icon">🎉</span>
+            <h3>Success Message</h3>
+            <p>Aadhaar is linked and DBT appears enabled</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="step step-action">
+            <span class="step-icon">📚</span>
+            <h3>User Explores Resources</h3>
+            <p>May visit resources page for more information</p>
+          </div>
+        </div>
+        
+        <!-- Warning Path -->
+        <div class="branch-path">
+          <div class="branch-label maybe">⚠️ Partial / Uncertain</div>
+          <div class="step step-action">
+            <span class="step-icon">❓</span>
+            <h3>Warning Message</h3>
+            <p>Aadhaar may be linked, DBT status uncertain</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="step step-action">
+            <span class="step-icon">➡️</span>
+            <h3>Redirect to Guide</h3>
+            <p>Button takes user to DBT enabling process</p>
+          </div>
+        </div>
+        
+        <!-- Error/Not Linked Path -->
+        <div class="branch-path">
+          <div class="branch-label no">❌ Not Linked</div>
+          <div class="step step-end">
+            <span class="step-icon">🚨</span>
+            <h3>Error Message</h3>
+            <p>Aadhaar likely not linked to bank account</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="step step-action">
+            <span class="step-icon">🔗</span>
+            <h3>Auto-Redirect to Guide</h3>
+            <p>User taken to dbt-guide.html automatically</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second Page Flow -->
+      <div class="arrow"></div>
+      
+      <div class="step step-start">
+        <span class="step-icon">📋</span>
+        <h3>DBT Enabling Guide Page</h3>
+        <p>dbt-guide.html - Step-by-step instructions</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <div class="step step-action">
+        <span class="step-icon">📖</span>
+        <h3>User Reads Prerequisites</h3>
+        <p>Checks what documents and info they need</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <div class="step step-action">
+        <span class="step-icon">📋</span>
+        <h3>Follows Step-by-Step Process</h3>
+        <p>4-step guide: Seed → Set Primary → Verify → Troubleshoot</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <div class="step step-action">
+        <span class="step-icon">🏦</span>
+        <h3>Personalized Assistance</h3>
+        <p>Enters bank and city for tailored instructions</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <div class="step step-success">
+        <span class="step-icon">✅</span>
+        <h3>Gets Bank-Specific Guidance</h3>
+        <p>Customized steps with contact info and resources</p>
+      </div>
+      
+      <div class="arrow"></div>
+      
+      <div class="step step-action">
+        <span class="step-icon">🔄</span>
+        <h3>User Can Re-check Status</h3>
+        <p>Link back to homepage checker or visit resources</p>
+      </div>
+    </div>
+    
+    <div class="legend">
+      <h3>🎨 Flow Elements Legend</h3>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <div class="legend-color start"></div>
+          <span>Entry Points / Starting Pages</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color decision"></div>
+          <span>Decision Points / User Choices</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color action"></div>
+          <span>User Actions / Process Steps</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color success"></div>
+          <span>Positive Outcomes / Success</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color end"></div>
+          <span>Issues / Problems Detected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Add smooth scroll animation when clicking on steps
+    document.querySelectorAll('.step').forEach(step => {
+      step.addEventListener('click', function() {
+        this.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+      });
+    });
+    
+    // Animate elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    });
+    
+    document.querySelectorAll('.step, .arrow').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
