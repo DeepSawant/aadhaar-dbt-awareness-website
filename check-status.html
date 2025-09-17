@@ -31,27 +31,27 @@
 
   <main id="main">
     <section class="panel">
-      <h1>🔍 Check Your Aadhaar DBT Status</h1>
-      <p class="lead">Verify if your Aadhaar is properly linked and DBT-enabled with your bank account. Get instant guidance on your next steps.</p>
+      <h1>🚀 Discover Your Aadhaar DBT Status - Unlock Your Benefits!</h1>
+      <p class="lead">🎯 Verify your account setup instantly! Find out if you're ready to receive scholarships, allowances & government benefits without delays.</p>
       
       <div class="status-info">
         <div class="info-card">
-          <h3>What we check:</h3>
+          <h3>📊 What We Analyze for You:</h3>
           <ul>
-            <li>✓ If your Aadhaar is linked to your bank account</li>
-            <li>✓ If DBT (Direct Benefit Transfer) is enabled</li>
-            <li>✓ If your account is set as primary for receiving benefits</li>
-            <li>✓ Any potential issues that might block transfers</li>
+            <li>🎯 If your Aadhaar is properly linked to your bank account</li>
+            <li>🚀 If DBT (Direct Benefit Transfer) is fully enabled</li>
+            <li>🏆 If your account is set as primary for receiving benefits</li>
+            <li>⚠️ Any potential issues that might block your transfers</li>
           </ul>
         </div>
         
         <div class="info-card">
-          <h3>Your data is safe:</h3>
+          <h3>🔒 Enhanced Security & Privacy:</h3>
           <ul>
-            <li>🔒 We don't store your personal information</li>
-            <li>🔒 All checks are done locally in your browser</li>
-            <li>🔒 No data is sent to external servers</li>
-            <li>🔒 This is for educational purposes only</li>
+            <li>🚫 Zero data storage - Nothing is saved or tracked</li>
+            <li>💻 All verification done locally in your browser</li>
+            <li>🌐 No data transmitted to external servers</li>
+            <li>🤖 CAPTCHA verification prevents automated abuse</li>
           </ul>
         </div>
       </div>
@@ -75,20 +75,26 @@
             </div>
             
             <div class="form-group">
-              <label for="mobileNumber">Registered Mobile Number *</label>
+              <label for="captchaInput">Security Verification (CAPTCHA) *</label>
+              <div class="captcha-container">
+                <div class="captcha-display" id="captchaDisplay">Loading...</div>
+                <button type="button" class="captcha-refresh" id="refreshCaptcha" aria-label="Refresh CAPTCHA">
+                  🔄
+                </button>
+              </div>
               <input 
                 type="text" 
-                id="mobileNumber" 
-                name="mobileNumber" 
-                placeholder="9876543210" 
+                id="captchaInput" 
+                name="captchaInput" 
+                placeholder="Enter the characters shown above" 
                 autocomplete="off"
                 autocapitalize="none"
                 autocorrect="off"
                 spellcheck="false"
                 required
-                aria-describedby="mobile-help"
+                aria-describedby="captcha-help"
               >
-              <small id="mobile-help">10-digit mobile number registered with your bank and Aadhaar</small>
+              <small id="captcha-help">Enter the security code shown above to verify you're human</small>
             </div>
           </div>
           
@@ -221,66 +227,58 @@
   <script src="js/script.js" defer></script>
   
   <script>
-    // Auto-format mobile number as user types
+    // CAPTCHA functionality and form handling
     document.addEventListener('DOMContentLoaded', function() {
-      const mobileInput = document.getElementById('mobileNumber');
       const aadhaarInput = document.getElementById('aadhaarNumber');
+      const captchaDisplay = document.getElementById('captchaDisplay');
+      const refreshCaptcha = document.getElementById('refreshCaptcha');
+      const captchaInput = document.getElementById('captchaInput');
       
-      // Clear any existing value and prevent default behavior
-      mobileInput.addEventListener('focus', function(e) {
-        e.target.value = e.target.value.replace(/\D/g, '');
+      let currentCaptcha = '';
+      
+      // Generate random CAPTCHA
+      function generateCaptcha() {
+        const chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789'; // Removed confusing chars like O, 0
+        let captcha = '';
+        for (let i = 0; i < 6; i++) {
+          captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return captcha;
+      }
+      
+      // Display CAPTCHA with styling
+      function displayCaptcha() {
+        currentCaptcha = generateCaptcha();
+        captchaDisplay.innerHTML = '';
+        
+        // Add each character with random styling
+        for (let i = 0; i < currentCaptcha.length; i++) {
+          const span = document.createElement('span');
+          span.textContent = currentCaptcha[i];
+          span.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+          span.style.color = `hsl(${Math.random() * 360}, 70%, 40%)`;
+          span.style.fontSize = `${20 + Math.random() * 8}px`;
+          span.style.display = 'inline-block';
+          span.style.margin = '0 2px';
+          captchaDisplay.appendChild(span);
+        }
+      }
+      
+      // Initialize CAPTCHA
+      displayCaptcha();
+      
+      // Refresh CAPTCHA button
+      refreshCaptcha.addEventListener('click', function() {
+        displayCaptcha();
+        captchaInput.value = '';
+        captchaInput.style.borderColor = '#e0e0e0';
+        captchaInput.style.backgroundColor = '#ffffff';
       });
       
-      // Handle paste events
-      mobileInput.addEventListener('paste', function(e) {
-        e.preventDefault();
-        let pastedText = (e.clipboardData || window.clipboardData).getData('text');
-        let digits = pastedText.replace(/\D/g, '');
-        
-        // Remove country code if present
-        if (digits.startsWith('91') && digits.length > 10) {
-          digits = digits.substring(2);
-        }
-        
-        // Limit to 10 digits
-        if (digits.length > 10) {
-          digits = digits.substring(0, 10);
-        }
-        
-        e.target.value = digits;
-        // Trigger input event to format
-        e.target.dispatchEvent(new Event('input'));
-      });
-      
-      // Format mobile number
-      mobileInput.addEventListener('input', function(e) {
-        // Get current cursor position
-        const cursorPos = e.target.selectionStart;
-        
-        // Remove all non-digits
-        let digits = e.target.value.replace(/\D/g, '');
-        
-        // Remove any leading country codes (91, +91, etc.)
-        if (digits.startsWith('91') && digits.length > 10) {
-          digits = digits.substring(2);
-        }
-        
-        // Limit to 10 digits maximum
-        if (digits.length > 10) {
-          digits = digits.substring(0, 10);
-        }
-        
-        // Format as XXXXX XXXXX
-        let formatted = digits;
-        if (digits.length > 5) {
-          formatted = digits.substring(0, 5) + ' ' + digits.substring(5);
-        }
-        
-        // Set the formatted value
-        e.target.value = formatted;
-        
-        // Visual feedback
-        if (digits.length === 10) {
+      // CAPTCHA input validation
+      captchaInput.addEventListener('input', function(e) {
+        const userInput = e.target.value.toUpperCase();
+        if (userInput === currentCaptcha) {
           e.target.style.borderColor = '#27ae60';
           e.target.style.backgroundColor = '#f8fff8';
         } else {
@@ -449,6 +447,54 @@
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+    }
+    
+    .captcha-display {
+      flex: 1;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 6px;
+      border: 2px solid #4ecdc4;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 24px;
+      letter-spacing: 3px;
+      text-align: center;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #ffffff 0%, #f8f9fa 100%);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .captcha-refresh {
+      background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    .captcha-refresh:hover {
+      background: linear-gradient(135deg, #e55a2b 0%, #cc4621 100%);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
     }
     
     @media (max-width: 768px) {
