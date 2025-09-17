@@ -6,32 +6,29 @@
 }
 
 :root {
-  /* Student & Judge Focused Color Palette */
-  --color-primary: #ff6b35; /* Energetic Orange - Education/Learning */
-  --color-primary-dark: #e55a2b;
-  --color-primary-light: #ff8c66;
-  --color-primary-ultra: #cc4621;
-  --color-secondary: #4ecdc4; /* Trustworthy Teal - Government/Banking */
-  --color-secondary-dark: #3db3aa;
-  --color-accent: #ffd93d; /* Bright Yellow - Success/Achievement */
-  --color-accent-light: #ffe066;
-  --color-premium: #ff4757; /* Alert Red - Problem/Urgency */
-  --color-premium-dark: #e63946;
-  --color-student: #7209b7; /* Purple - Student Identity */
-  --color-success: #2ed573; /* Green - Solution/Success */
-  --color-warning: #ff9f43; /* Orange - Caution/Important */
+  /* Simple Professional Color Palette */
+  --color-primary: #2563eb; /* Professional Blue */
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-primary-ultra: #1e40af;
+  --color-secondary: #059669; /* Clean Green */
+  --color-secondary-dark: #047857;
+  --color-accent: #f59e0b; /* Warm Gold */
+  --color-accent-light: #fbbf24;
+  --color-premium: #dc2626; /* Clean Red */
+  --color-premium-dark: #b91c1c;
+  --color-student: #7c3aed; /* Professional Purple */
+  --color-success: #059669; /* Success Green */
+  --color-warning: #d97706; /* Warning Orange */
   
-  /* Student-Focused Gradients */
-  --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
-  --gradient-secondary: linear-gradient(135deg, #4ecdc4 0%, #3db3aa 100%);
-  --gradient-student: linear-gradient(135deg, #7209b7 0%, #a855f7 100%);
-  --gradient-success: linear-gradient(135deg, #2ed573 0%, #26d0ce 100%);
-  --gradient-premium: linear-gradient(135deg, #ff6b35 0%, #4ecdc4 50%, #ffd93d 100%);
-  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  --gradient-problem: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
-  --gradient-solution: linear-gradient(135deg, #2ed573 0%, #7bed9f 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
-  --gradient-premium-text: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  /* Simple Professional Gradients */
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --gradient-secondary: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-hero: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+  --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-text: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   
   /* Neutral Colors */
   --color-gray-50: #f8fafc;
@@ -166,21 +163,12 @@ h1 {
 }
 
 .hero h1 {
-  background: linear-gradient(135deg, #ff6b35 0%, #ffd93d 25%, #4ecdc4 50%, #a855f7 75%, #ff4757 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 300% 300%;
-  text-shadow: 
-    0 3px 15px rgba(0, 0, 0, 0.5),
-    0 0 50px rgba(255, 107, 53, 0.8),
-    0 0 100px rgba(255, 217, 61, 0.6),
-    0 0 150px rgba(78, 205, 196, 0.4);
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  animation: titlePulse 4s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
 }
 
 h2 {
@@ -214,17 +202,10 @@ p {
 }
 
 .hero .lead {
-  background: linear-gradient(135deg, #ffffff 0%, #ffd93d 50%, #ff6b35 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% 200%;
-  text-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 217, 61, 0.7),
-    0 0 50px rgba(255, 107, 53, 0.5);
-  font-weight: 500;
-  animation: gradientShift 8s ease-in-out infinite;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  opacity: 0.95;
 }
 
 /* Premium Navigation - Showcase Ready */
@@ -232,9 +213,8 @@ p {
   background: var(--gradient-hero);
   color: white;
   padding: var(--spacing-6) 0;
-  box-shadow: var(--shadow-premium);
+  box-shadow: var(--shadow-lg);
   position: relative;
-  overflow: hidden;
 }
 
 .site-header::before {
@@ -244,26 +224,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 217, 61, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
-  z-index: -1;
-}
-
-.site-header::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.03) 50%, transparent 51%),
-    linear-gradient(-45deg, transparent 49%, rgba(255, 255, 255, 0.03) 50%, transparent 51%);
-  background-size: 20px 20px;
-  opacity: 0.5;
+  background: var(--gradient-glass);
   z-index: -1;
 }
 
@@ -280,31 +241,24 @@ p {
 
 .logo {
   font-size: var(--font-size-2xl);
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
-  background: linear-gradient(135deg, #ffd93d 0%, #ff6b35 50%, #4ecdc4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
   letter-spacing: -0.02em;
   transition: var(--transition-base);
   position: relative;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  filter: drop-shadow(0 0 25px rgba(255, 217, 61, 0.6));
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .logo::before {
   content: '🎓💳';
   margin-right: var(--spacing-2);
   font-size: var(--font-size-2xl);
-  filter: drop-shadow(0 0 15px rgba(255, 217, 61, 0.8));
-  animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
 .logo:hover {
-  transform: translateY(-2px) scale(1.05);
-  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6));
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
 }
 
 .nav__toggle {
@@ -348,11 +302,10 @@ p {
 
 .nav__list a:hover,
 .nav__list a:focus {
-  background: linear-gradient(135deg, rgba(255, 217, 61, 0.2) 0%, rgba(78, 205, 196, 0.2) 100%);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3), 0 0 20px rgba(78, 205, 196, 0.2);
-  border: 1px solid rgba(255, 217, 61, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .nav__list a[aria-current="page"] {
@@ -375,17 +328,13 @@ p {
 .hero::before {
   content: '';
   position: absolute;
-  top: -100px;
-  left: -100px;
-  right: -100px;
-  bottom: -100px;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
   background: 
-    radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 75% 75%, rgba(78, 205, 196, 0.2) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(255, 217, 61, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(114, 9, 183, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(46, 213, 115, 0.1) 0%, transparent 50%);
-  animation: heroFloat 20s ease-in-out infinite;
+    radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 50%);
   z-index: -1;
 }
 
@@ -437,10 +386,7 @@ p {
   background: var(--gradient-primary);
   color: white;
   border: none;
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-  position: relative;
-  overflow: hidden;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--primary::after {
@@ -457,10 +403,9 @@ p {
 
 .btn--primary:hover,
 .btn--primary:focus {
-  background: linear-gradient(135deg, #ff8c66 0%, #ff6b35 100%);
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6), 0 5px 15px rgba(255, 217, 61, 0.4);
-  filter: brightness(1.1);
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn--primary:hover::after {
@@ -471,16 +416,14 @@ p {
   background: var(--gradient-secondary);
   color: white;
   border: none;
-  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--secondary:hover,
 .btn--secondary:focus {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--color-secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn--large {
@@ -1289,24 +1232,13 @@ main {
 .stat {
   text-align: center;
   padding: var(--spacing-8);
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%),
-    radial-gradient(circle at 30% 30%, rgba(255, 71, 87, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255, 217, 61, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(78, 205, 196, 0.12) 0%, transparent 60%);
+  background: var(--gradient-glass);
   border-radius: var(--radius-xl);
-  backdrop-filter: blur(20px);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  border-image: linear-gradient(135deg, #ff4757, #ffd93d, #4ecdc4, #a855f7) 1;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   min-width: 140px;
   transition: var(--transition-base);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 
-    0 8px 32px rgba(255, 107, 53, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .stat::before {
@@ -1322,18 +1254,10 @@ main {
 }
 
 .stat:hover {
-  transform: translateY(-12px) scale(1.08);
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%),
-    radial-gradient(circle at 30% 30%, rgba(255, 71, 87, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255, 217, 61, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(78, 205, 196, 0.2) 0%, transparent 60%);
-  box-shadow: 
-    0 25px 50px rgba(255, 107, 53, 0.4),
-    0 0 0 2px rgba(255, 255, 255, 0.4),
-    0 0 80px rgba(255, 71, 87, 0.6),
-    0 0 120px rgba(255, 217, 61, 0.4),
-    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .stat:hover::before {
@@ -1343,32 +1267,19 @@ main {
 .stat__number {
   display: block;
   font-size: var(--font-size-4xl);
-  font-weight: 900;
-  background: linear-gradient(45deg, #ff4757 0%, #ffd93d 25%, #2ed573 50%, #4ecdc4 75%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 400% 400%;
-  text-shadow: 
-    0 3px 10px rgba(0, 0, 0, 0.6),
-    0 0 25px rgba(255, 71, 87, 0.6),
-    0 0 40px rgba(255, 217, 61, 0.4),
-    0 0 60px rgba(46, 213, 115, 0.3);
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   line-height: 1;
   margin-bottom: var(--spacing-2);
-  animation: studentEnergy 3s ease-in-out infinite, gradientShift 4s ease-in-out infinite;
 }
 
 .stat__label {
   display: block;
   font-size: var(--font-size-sm);
-  background: linear-gradient(135deg, #ffffff 0%, #ffd93d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
   letter-spacing: 0.02em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero__note {
