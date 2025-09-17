@@ -152,6 +152,67 @@
     <p>&copy; <span id="year"></span> Student Awareness Initiative. For information only.</p>
   </footer>
 
+  <!-- DBT Sahayak Chatbot -->
+  <div id="chatbot-container">
+    <!-- Chat Toggle Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open DBT Sahayak Assistant">
+      <span class="chatbot-icon">💬</span>
+      <span class="chatbot-notification" id="chat-notification">1</span>
+    </button>
+    
+    <!-- Chat Window -->
+    <div id="chatbot-window" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <span class="avatar-icon">🤖</span>
+        </div>
+        <div class="chatbot-info">
+          <h3>DBT Sahayak Assistant</h3>
+          <p class="chatbot-status">Online • Ready to help</p>
+        </div>
+        <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">
+          <span>×</span>
+        </button>
+      </div>
+      
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="message bot-message">
+          <div class="message-avatar">🤖</div>
+          <div class="message-content">
+            <p>Hello! I'm your DBT Sahayak Assistant. I can help you with:</p>
+            <ul>
+              <li>🏦 Understanding DBT vs Aadhaar-linked accounts</li>
+              <li>✅ Checking your account status</li>
+              <li>📋 Step-by-step enabling guides</li>
+              <li>❓ Common questions and troubleshooting</li>
+            </ul>
+            <p>How can I assist you today?</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-quick-actions">
+        <button class="quick-action" data-message="What's the difference between Aadhaar-linked and DBT-enabled accounts?">🤔 What's the difference?</button>
+        <button class="quick-action" data-message="How do I check if my account is DBT-enabled?">✅ Check my status</button>
+        <button class="quick-action" data-message="How do I enable DBT on my account?">📋 Enable DBT</button>
+      </div>
+      
+      <div class="chatbot-input">
+        <input 
+          type="text" 
+          id="chatbot-message-input" 
+          placeholder="Type your question here..." 
+          maxlength="500"
+          autocomplete="off"
+        >
+        <button id="chatbot-send" class="chatbot-send" type="button" aria-label="Send message">
+          <span>📤</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/script.js" defer></script>
+  <script src="js/chatbot.js" defer></script>
 </body>
 </html>
